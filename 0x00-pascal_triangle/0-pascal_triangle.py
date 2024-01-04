@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" A function that return a list of Pascal's Triangle
+""" 0-pascal_triangle.py
 """
 
 
