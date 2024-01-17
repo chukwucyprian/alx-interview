@@ -1,10 +1,13 @@
 #!/usr/bin/python3
 """
-Calculate the fewest number of operations needed to result in exactly n H characters in the file
+Calculate the fewest number of operations needed to result in
+ exactly n H characters in the file
 """
 
+
 def minOperations(n):
-    """A method that calculates the fewest number of operations needed to result in exactly n H characters in the file.
+    """A method that calculates the fewest number of operations needed
+      to result in exactly n H characters in the file.
     """
     if n <= 1:
         return 0
@@ -15,9 +18,10 @@ def minOperations(n):
 
     return n
 
+
 if __name__ == "__main__":
     n = 4
-    print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+    print("operations to reach {} char: {}".format(n, minOperations(n)))
 
     n = 12
-    print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+    print(" operations to reach {} char: {}".format(n, minOperations(n)))
