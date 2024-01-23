@@ -12,7 +12,8 @@ total_file_size = 0
 
 
 def print_stats():
-    """prints out the statistics"""
+    """prints out the statistics
+    """
     print("File size: {}".format(total_file_size))
     for status, count in sorted(status_codes_map.items()):
         print("{}: {}".format(status, count))
@@ -31,7 +32,7 @@ try:
                 else:
                     status_codes_map[status_code] = 1
         except ValueError:
-            print("Warning: Ignored line with unexpected format:", line)
+            pass
         lines_read += 1
         if lines_read % 10 == 0:
             print_stats()
