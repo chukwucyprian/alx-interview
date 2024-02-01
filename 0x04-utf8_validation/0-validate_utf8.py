@@ -9,6 +9,7 @@ def validUTF8(data):
     expected_bytes = 0
 
     for num in data:
+
         if num >> 7 == 0:
             if expected_bytes > 0:
                 return False
@@ -18,9 +19,9 @@ def validUTF8(data):
                 expected_bytes += 1
                 mask >>= 1
 
-            if expected_bytes == 0 or expected_bytes > 3:
+            if expected_bytes == 1 or expected_bytes > 4:
                 return False
 
-        expected_bytes -= 1
+        expected_bytes = max(expected_bytes - 1, 0)
 
     return expected_bytes == 0
