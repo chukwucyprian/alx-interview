@@ -27,7 +27,7 @@ def is_safe(board, row, col):
 def nqueens_util(board, row, n, solutions):
     """method for iterating """
     if row == n:
-        solutions.append([[i, col] for i, col in enumerate(board)]) 
+        solutions.append([[i, col] for i, col in enumerate(board)])
         return
 
     for col in range(n):
