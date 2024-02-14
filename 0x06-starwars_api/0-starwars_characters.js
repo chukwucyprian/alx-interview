@@ -2,7 +2,6 @@
 
 const request = require('request');
 
-// Function to fetch characters of a Star Wars movie by its ID
 function getCharacters(movieId) {
     const url = `https://swapi.dev/api/films/${movieId}/`;
     request(url, (error, response, body) => {
@@ -26,13 +25,11 @@ function getCharacters(movieId) {
     });
 }
 
-// Extract movie ID from command line argument
 const movieId = process.argv[2];
 if (!movieId) {
     console.error('Usage: ./0-starwars_characters.js <movie_id>');
     process.exit(1);
 }
 
-// Fetch and display characters of the specified movie
 getCharacters(movieId);
 
