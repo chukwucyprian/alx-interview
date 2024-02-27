@@ -4,7 +4,7 @@
 
 def makeChange(coins, total):
     """
-    Given a pile of coins of different values, 
+    Given a pile of coins of different values,
     determine the fewest number of coins needed to meet a given amount tota
     """
     if total <= 0:
