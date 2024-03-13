@@ -65,3 +65,7 @@ def isWinner(x, nums):
         return "Maria"
     else:
         return "Ben"
+
+# Test cases
+print("Winner:", isWinner(3, [4, 5, 1]))  # Output: Ben
+print("Winner:", isWinner(5, [2, 5, 1, 4, 3]))  # Output: Ben
