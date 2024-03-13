@@ -48,18 +48,15 @@ def isWinner(x, nums):
                 primes.append(i)
         return primes
 
-    # Dictionary to store the count of wins for each player
     winners = {"Maria": 0, "Ben": 0}
 
-    # Iterate through each round
     for n in nums:
-        primes = get_primes(n)  # Get prime numbers for the current round
-        if len(primes) % 2 == 0:  # If the number of primes is even, Ben wins
+        primes = get_primes(n)
+        if len(primes) % 2 == 0:
             winners["Ben"] += 1
-        else:  # Otherwise, Maria wins
+        else:
             winners["Maria"] += 1
 
-    # Determine the overall winner
     if winners["Maria"] == winners["Ben"]:
         return None
     elif winners["Maria"] > winners["Ben"]:
