@@ -1,65 +1,30 @@
 #!/usr/bin/python3
-"""A Prime Game Python Code"""
+""" Module for solving prime game question """
 
 
 def isWinner(x, nums):
-    """
-    Determine the winner of a prime game for multiple rounds.
-
-    Args:
-        x (int): The number of rounds to play.
-        nums (list):An array of integers for the upper bounds of each round.
-
-    Returns:
-        str or None: The name of the player that won the most rounds.
-        If the winner cannot be determined, return None.
-    """
-
-    def is_prime(num):
-        """
-        Check if a number is prime.
-
-        Args:
-            num (int): The number to check.
-
-        Returns:
-            bool: True if the number is prime, False otherwise.
-        """
-        if num < 2:
-            return False
-        for i in range(2, int(num ** 0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
-
-    def get_primes(n):
-        """
-        Generate a list of prime numbers up to a given limit.
-
-        Args:
-            n (int): The upper bound for generating prime numbers.
-
-        Returns:
-            list: A list of prime numbers up to the given limit.
-        """
-        primes = []
-        for i in range(2, n + 1):
-            if is_prime(i):
-                primes.append(i)
-        return primes
-
-    winners = {"Maria": 0, "Ben": 0}
-
-    for n in nums:
-        primes = get_primes(n)
-        if len(primes) % 2 == 0:
-            winners["Ben"] += 1
-        else:
-            winners["Maria"] += 1
-
-    if winners["Maria"] == winners["Ben"]:
+    """function that checks for the winner"""
+    if not nums or x < 1:
         return None
-    elif winners["Maria"] > winners["Ben"]:
+    max_num = max(nums)
+
+    my_filter = [True for _ in range(max(max_num + 1, 2))]
+    for i in range(2, int(pow(max_num, 0.5)) + 1):
+        if not my_filter[i]:
+            continue
+        for j in range(i * i, max_num + 1, i):
+            my_filter[j] = False
+    my_filter[0] = my_filter[1] = False
+    y = 0
+    for i in range(len(my_filter)):
+        if my_filter[i]:
+            y += 1
+        my_filter[i] = y
+    player1 = 0
+    for x in nums:
+        player1 += my_filter[x] % 2 == 1
+    if player1 * 2 == len(nums):
+        return None
+    if player1 * 2 > len(nums):
         return "Maria"
-    else:
-        return "Ben"
+    return "Ben"
